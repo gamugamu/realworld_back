@@ -7,10 +7,10 @@ services:
     container_name: "realworld-mongo"
     restart: always
     ports:
-      - 27017:27017
+      - 27017:27018
 
   realwordback:
-    image: cryptodraco/back_realworld:latest
+    image: cryptodraco/realword_back:0.0.1
     container_name: "realword-back"
     restart: always
 
@@ -24,11 +24,11 @@ services:
       - 3000:3000
 
   realwordfront:
-    image: cryptodraco/realwordfront:latest
+    image: cryptodraco/realword_front:0.0.1
     container_name: "realword-front"
     restart: always
 
     links:
       - realwordback
     ports:
-      - 8080:8080
+      - 8080:5001
