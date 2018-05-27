@@ -2,12 +2,12 @@ version: '2'
 
 services:
 
-  mongodb:
+  realmongodb:
     image: mongo:2.4
     container_name: "realworld-mongo"
     restart: always
-    ports:
-      - 27017:27018
+    expose:
+      - "27017"
 
   realwordback:
     image: cryptodraco/realword_back:0.0.1
@@ -31,4 +31,4 @@ services:
     links:
       - realwordback
     ports:
-      - 8080:5001
+      - 5001:8080
